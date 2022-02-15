@@ -1,0 +1,17 @@
+# gitignore created on 02/14/22 at 15:49
+# Disable reminder in prompt
+ignoredirmessage
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Other
+.installed
+
+

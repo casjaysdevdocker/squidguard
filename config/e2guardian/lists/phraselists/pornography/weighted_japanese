@@ -1,0 +1,265 @@
+#
+# Phraselists to block japanese pornographic and explicit sites.
+# Originally Created by Fernand Jonker 
+# Sponsored by Eric Duveau
+#
+# Some words and meanings from 
+# http://en.wikipedia.org/wiki/List_of_Japanese_sex_terms
+# http://en.wikipedia.org/wiki/Pornography_in_Japan
+#
+# Note that all phrases are in UFT-8, EUC-JP and SHIFT_JIS character sets. 
+
+#noconvert
+#listcategory: "Pornography (Japanese)"
+ 
+
+#Block Un-filtered character sets
+#<x-sjis><250>  #New character set - not used much
+#<ISO-2022-JP><250>  #Used primarily for email
+#<CP932><250>    #Unknown 
+
+#######################################
+#Shift_JIS
+#######################################
+
+#<Shift_JIS><1>  #CharSet Identifier for Troubleshooting
+
+<����><50> #little woman (girl)
+<��><10> #woman
+<��><5> #beauty
+<��><10> #nude
+<����><20> #nude
+<�g��><10> #body
+<��><10> breast
+<���X�s�X><50> #children not allowed
+<�ʐ^�W�E��W><50> #fetish photos
+
+<21�Έȏ�><100> #21 or older
+<18�Έȏ�><100> #18 or older
+<18�Έȏ�><200>
+<�I�i�j�[><100> #masturbation
+<��><20> #milk - semen
+<�N��F��><50> #age verification
+<�A�_���g><50> #adult
+
+<�|���m�O���t�B�[><100> #porn
+
+<�����ς�><50> #breasts
+<�I�[�����Z�b�N�X><50> #oral sex
+<�p�C�Y��><50> #mammary intercourse
+<�Ǝo��><50> #Pole Sisters; Two or more women that have had sex with the same man.
+<����><50> #intercourse
+<���q><20> #sperm
+<���~><40> #sexual desire
+<�Z�b�N�X><50> #sex
+<������><50> #female ejaculation
+<�K><20> #buttocks
+<����><30> #virgin
+<�V���^�R��><100> # fetish for underage boys
+<����><50> #perverted, lecherous.
+<���><5> #to have sex
+<�U�[����><40> #The Japanese pronounciation of the German word "Samen" (semen).
+<�s��><50> #pervert/molestor
+<�`�J��><50> #pervert/molestor
+<������><50> #pervert/molestor
+<����><50> #bondage
+
+<���t><50> # love juice; male and/or female sexual secretions
+<���Z��><50> #hole brothers, Two or more men that have had sex with the same woman.
+
+<�ł��|��><50> #Bukakke
+<���b�J�P><50> #Bukakke
+<�o�b�N��><50> #Doggy Style
+<���t�w><50> #Prostitute
+<�����N><50> # beautiful boy
+<������><50> #describes any pretty girl
+<�ڂ�><50> # the vulva or vagina
+<���f><50> # nipple
+<�G�b�`><40> # perverted
+<�G�b�`��><40> # perverted
+
+<�t�@�b�N><100> #fuck
+<�t�F��><100> #fellatio
+<�t�F���`�I><100> #fellatio
+
+<�n����><50> #to have sex
+
+<�b��><100> #beastiality
+
+<�ϑ�><50> #hentai - used for explicit/perverted material in Japan
+<�G���A�j��><50> #erotica anime
+<���N><50> #adult
+<18��><100> #prohibited to those under 18
+<���l����><100> #adults only
+<�G��><50> #erotic/porn
+<�����R��><50> #lolicon / lolita
+
+<��><10> #ass
+<����><50> #big chest/breasts
+
+<���o��><60> #internal male ejaculation
+<�I�i�j�[><100> #masturbation
+
+#######################################
+#UTF-8
+#######################################
+
+#<UTF-8><1>  #CharSet Identifier for Troubleshooting
+
+<少女><50> #little woman (girl)
+<女><10> #woman
+<美><5> #beauty
+<裸><10> #nude
+<裸体><20> #nude
+<身体><10> #body
+<胸><10> breast
+<少儿不宜><50> #children not allowed
+<写真集・画集><50> #fetish photos
+
+<21歳以上><100> #21 or older
+<18歳以上><100> #18 or older
+<オナニー><100> #masturbation
+<乳><20> #milk - semen
+<年齢認証><50> #age verification
+<アダルト><50> #adult
+
+<ポルノグラフィー><50> #porn
+
+<おっぱい><50> #breasts
+<オーラルセックス><50> #oral sex
+<パイズリ><50> #mammary intercourse
+<竿姉妹><50> #Pole Sisters; Two or more women that have had sex with the same man.
+<性交><50> #intercourse
+<精子><20> #sperm
+<性欲><40> #sexual desire
+<セックス><50> #sex
+<潮吹き><50> #female ejaculation
+<尻><20> #buttocks
+<処女><30> #virgin
+<ショタコン><100> # fetish for underage boys
+<助平><50> #perverted, lecherous.
+<やる><5> #to have sex
+<ザーメン><40> #The Japanese pronounciation of the German word "Samen" (semen).
+<痴漢><50> #pervert/molestor
+<チカン><50> #pervert/molestor
+<ちかん><50> #pervert/molestor
+<縛り><50> #bondage
+
+<愛液><50> # love juice; male and/or female sexual secretions
+<穴兄弟><50> #hole brothers, Two or more men that have had sex with the same woman.
+
+<打っ掛け><50> #Bukakke
+<ロッカケ><50> #Bukakke
+<バックで><50> #Doggy Style
+<売春婦><50> #Prostitute
+<美少年><50> # beautiful boy
+<美少女><50> #describes any pretty girl
+<ぼぼ><50> # the vulva or vagina
+<乳馭><50> # nipple
+<エッチ><40> # perverted
+<エッチな><40> # perverted
+
+<ファック><100> #fuck
+<フェラ><100> #fellatio
+<フェラチオ><100> #fellatio
+
+<ハメル><50> #to have sex
+
+<獣姦><100> #beastiality
+
+<変態><50> #hentai - used for explicit/perverted material in Japan
+<エロアニメ><50> #erotica anime
+<成年><50> #adult
+<18禁><100> #prohibited to those under 18
+<成人漫画><100> #adults only
+<エロ><50> #erotic/porn
+<ロリコン><50> #lolicon / lolita
+
+<穴><10> #ass
+<巨乳><50> #big chest/breasts
+
+<中出し><60> #internal male ejaculation
+<オナニー><100> #masturbation
+
+#######################################
+#EUC-JP
+#######################################
+
+#<EUC-JP><1>  #CharSet Identifier for Troubleshooting
+
+<����><50> #little woman (girl)
+<��><10> #woman
+<���ʥˡ�><250> #masturbation
+<���ʥ><250> #masturbation
+<��><5> #beauty
+<��><10> #nude
+<����><20> #nude
+<����><10> #body
+<��><10> breast
+<��ѹ�Ե�><50> #children not allowed
+<�̿������轸><50> #fetish photos
+
+<21�аʾ�><100> #21 or older
+<18�аʾ�><100> #18 or older
+
+<��><20> #milk - semen
+<ǯ��ǧ��><50> #age verification
+<�������><50> #adult
+
+<�ݥ�Υ���ե���><100> #porn
+
+<���äѤ�><50> #breasts
+<������륻�å���><50> #oral sex
+<�ѥ�����><50> #mammary intercourse
+<�Ȼ���><50> #Pole Sisters; Two or more women that have had sex with the same man.
+<����><50> #intercourse
+<����><20> #sperm
+<����><40> #sexual desire
+<���å���><50> #sex
+<Ĭ�᤭><50> #female ejaculation
+<��><20> #buttocks
+<���><30> #virgin
+<���祿����><100> # fetish for underage boys
+<��ʿ><50> #perverted, lecherous.
+<���><5> #to have sex
+<�������><40> #The Japanese pronounciation of the German word "Samen" (semen).
+<�Դ�><50> #pervert/molestor
+<������><50> #pervert/molestor
+<������><50> #pervert/molestor
+<����><50> #bondage
+
+<����><50> # love juice; male and/or female sexual secretions
+<�귻��><50> #hole brothers, Two or more men that have had sex with the same woman.
+
+<�Ǥóݤ�><50> #Bukake
+<���å���><50> #Bukake
+<�Хå���><50> #Doggy Style
+<�����><50> #Prostitute
+<����ǯ><50> # beautiful boy
+<������><50> #describes any pretty girl
+<�ܤ�><50> # the vulva or vagina
+<����><50> # nipple
+<���å�><40> # perverted
+<���å���><40> # perverted
+
+<�ե��å�><100> #fuck
+<�ե���><100> #fellatio
+<�ե������><100> #fellatio
+
+<�ϥ��><50> #to have sex
+
+<�ô�><100> #beastiality
+
+<����><50> #hentai - used for explicit/perverted material in Japan
+<�������˥�><50> #erotica anime
+<��ǯ><50> #adult
+<18��><100> #prohibited to those under 18
+<����̡��><100> #adults only
+<����><50> #erotic/porn
+<���ꥳ��><50> #lolicon / lolita
+
+<��><10> #ass
+<����><50> #big chest/breasts
+
+<��Ф�><60> #internal male ejaculation
+<���ʥˡ�><100> #masturbation

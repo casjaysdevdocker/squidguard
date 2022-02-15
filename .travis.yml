@@ -1,0 +1,29 @@
+sudo: required
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.5.2
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - docker-compose build
+  - docker-compose up -d
+  # everything running?
+  - docker-compose ps
+  - docker-compose ps squidguard | grep Up
+  # wpad should be available
+  - docker-compose run squidguard wget -o /dev/null http://squidguard/wpat.dat
+  # muenchhausen.de should not be blocked
+  - docker-compose run squidguard wget -e use_proxy=yes -e http_proxy=http://squidguard:3128 -o /dev/null http://www.muenchhausen.de
+  # lemonlime.de should be blocked because it is not in the whitelist
+  - docker-compose run squidguard wget -e use_proxy=yes -e http_proxy=http://squidguard:3128 --content-on-error -qO- http://www.lemonlime.de | grep "block"
+
+notifications:
+  email:
+    - derk@muenchhausen.de

@@ -25,11 +25,8 @@ ENV \
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -yy \
+  net-tools \
   postfix \
-  squid \
-  squidguard \
-  e2guardian \
-  c-icap \
   apache2 \
   apache2-bin \
   libapache2-mod-fcgid \
@@ -37,7 +34,12 @@ RUN apt-get update \
   libapache2-mod-proxy-uwsgi \
   libapache2-mod-fcgid \
   libapache2-mod-wsgi \
-  net-tools \
+  squid \
+  squid-cgi \
+  squidclient \
+  squidguard \
+  e2guardian \
+  c-icap \
   && apt-get remove -yy --purge exim* \
   && rm -rf /var/lib/apt/lists/* /etc/apache2/* \
   && mkdir -p /config /data \
@@ -54,7 +56,7 @@ FROM scratch
 
 COPY --from=build /. /
 
-EXPOSE 3127 3128 80
+EXPOSE 3128 8080
 VOLUME ["/config", "/data"]
 
 HEALTHCHECK CMD ["/usr/local/bin/entrypoint-squid.sh","healthcheck"]

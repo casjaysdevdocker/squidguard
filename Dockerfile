@@ -57,6 +57,7 @@ FROM scratch
 COPY --from=build /. /
 
 EXPOSE 3128 8080
+WORKDIR /config
 VOLUME ["/config", "/data"]
 
 HEALTHCHECK CMD ["/usr/local/bin/entrypoint-squid.sh","healthcheck"]

@@ -3,7 +3,7 @@
 SQUID_USER="${SQUID_USER:-squid}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
 REDIRECT_URL="${REDIRECT_URL:-}"
-BLOCKLIST="${BLOCKLIST:-http://dsi.ut-capitole.fr/blacklists/download/blacklists_for_pfsense.tar.gz}"
+BLOCKLIST="${BLOCKLIST:-https://github.com/casjay/resources/raw/main/files/shallalist.tar.gz}"
 BLOCKED_CATEGORIES="${BLOCKED_CATEGORIES:-adv,aggressive,porn,spyware,violence,warez}"
 
 CONFIG_FILE="/etc/squidguard/squidGuard.conf"

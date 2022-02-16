@@ -2,7 +2,7 @@
 
 set -ex
 
-SQUID_USER="${SQUID_USER:-squid}"
+SQUID_USER="${SQUID_USER:-root}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
 REDIRECT_URL="${REDIRECT_URL:-/}"
 BLOCKLIST="${BLOCKLIST:-http://www.shallalist.de/Downloads/shallalist.tar.gz}"

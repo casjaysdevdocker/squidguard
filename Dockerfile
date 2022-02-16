@@ -21,7 +21,7 @@ ENV \
   SQUID_HOME_DIR=/var/lib/squid \
   SQUID_CACHE_DIR=/data/cache/squid \
   SQUID_LOG_DIR=/data/log/squid \
-  SQUID_USER=squid
+  SQUID_USER=root
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -yy \
@@ -37,10 +37,12 @@ RUN apt-get update \
   libapache2-mod-proxy-uwsgi \
   libapache2-mod-fcgid \
   libapache2-mod-wsgi \
+  net-tools \
   && apt-get remove -yy --purge exim* \
-  && rm -rf /var/lib/apt/lists/* /etc/apache2/*conf* \
+  && rm -rf /var/lib/apt/lists/* /etc/apache2/* \
   && mkdir -p /config /data \
-  && useradd -d "$SQUID_HOME_DIR" -r -U -m "$SQUID_USER"
+  && { grep -qs "$SQUID_USER" /etc/passwd || useradd -d "$SQUID_HOME_DIR" -r -U -m "$SQUID_USER"; } \
+  && chown -R "$SQUID_USER":"$SQUID_USER" "/config" "/data"
 
 ADD ./config/. /etc/
 ADD ./bin/. /usr/local/bin/

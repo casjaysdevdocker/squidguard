@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-set -ex
-
-SQUID_USER="${SQUID_USER:-root}"
+SQUID_USER="${SQUID_USER:-squid}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
-REDIRECT_URL="${REDIRECT_URL:-/}"
-BLOCKLIST="${BLOCKLIST:-http://www.shallalist.de/Downloads/shallalist.tar.gz}"
+REDIRECT_URL="${REDIRECT_URL:-}"
+BLOCKLIST="${BLOCKLIST:-http://dsi.ut-capitole.fr/blacklists/download/blacklists_for_pfsense.tar.gz}"
 BLOCKED_CATEGORIES="${BLOCKED_CATEGORIES:-adv,aggressive,porn,spyware,violence,warez}"
 
 CONFIG_FILE="/etc/squidguard/squidGuard.conf"
@@ -62,7 +60,7 @@ NOT_LIST="${BLOCKED_CATEGORIES//,/ !}"
   echo "}"
 } >>"${CONFIG_FILE}"
 
-squidGuard -C all
+squidGuard -b -d -C all
 
 chown -R ${SQUID_USER}:${SQUID_USER} "${DB_LOCATION}"
 chown -R ${SQUID_USER}:${SQUID_USER} "${LOG_LOCATION}"

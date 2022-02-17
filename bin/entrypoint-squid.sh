@@ -22,10 +22,11 @@ __init() {
     elif [ -d "/usr/local/share/squidFiles/config/$dir" ]; then
       [ -d "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/config/$dir/." "/config/$dir/"
     else
-      cp -Rf "/usr/local/share/squidFiles/data/." "/data/"
       [ -e "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/config/$dir" "/config/$dir"
     fi
   done
+
+  [ -d "/data/htdocs" ] || cp -Rf "/usr/local/share/squidFiles/data/htdocs/." "/data/htdocs/"
 
   mkdir -p "/data/log/squidguard" "/data/log/e2guardian" "/data/squidguard/db" "/data/log/c-icap"
   mkdir -p "${SQUID_LOG_DIR}" "${SQUID_CACHE_DIR}" "/data/log/apache2" "/data/htdocs/cgi-bin"
@@ -119,11 +120,12 @@ bash | shell | sh)
   [ -f "/var/run/apache2.pid" ] && rm -R /var/run/apache2.pid
   apache2 -D FOREGROUND -f "/config/apache2/apache2.conf" &
 
+  echo "Starting squid..."
+  squid -f "/config/squid/squid.conf" -NYCd 1 ${EXTRA_ARGS} &
+
   echo "Starting e2guardian..."
   e2guardian -N -c "/config/e2guardian/e2guardian.conf" &
 
-  echo "Starting squid..."
-  squid -f "/config/squid/squid.conf" -NYCd 1 ${EXTRA_ARGS} &
-  exec tail -f /data/log/*/*
+  sleep 30 && exec tail -f /data/log/*/*
   ;;
 esac

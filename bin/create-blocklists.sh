@@ -2,7 +2,7 @@
 
 SQUID_USER="${SQUID_USER:-squid}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
-REDIRECT_URL="${REDIRECT_URL:-/}"
+REDIRECT_URL="${REDIRECT_URL:-}"
 BLOCKLIST="${BLOCKLIST:-https://github.com/casjay/resources/raw/main/files/shallalist.tar.gz}"
 BLOCKED_CATEGORIES="${BLOCKED_CATEGORIES:-adv,aggressive,porn,spyware,violence,warez}"
 
@@ -29,38 +29,10 @@ for CATEGORY in $(echo ${BLOCKED_CATEGORIES} | sed "s/,/ /g"); do
     echo "Category ${CATEGORY} not available!"
     exit 1
   fi
-
   cp -r "/tmp/blocklist/${CATEGORY}" "${DB_LOCATION}/"
-
-  echo "dest ${CATEGORY} {" >>"${CONFIG_FILE}"
-
-  if [ -e "${DB_LOCATION}/${CATEGORY}/domains" ]; then
-    echo "  domainlist ${CATEGORY}/domains" >>"${CONFIG_FILE}"
-  fi
-
-  if [ -e "${DB_LOCATION}/${CATEGORY}/urls" ]; then
-    echo "  urllist ${CATEGORY}/urls" >>"${CONFIG_FILE}"
-  fi
-
-  if [ -e "${DB_LOCATION}/${CATEGORY}/expressions" ]; then
-    echo "  expressionlist ${CATEGORY}/expressions" >>"${CONFIG_FILE}"
-  fi
-
-  echo "}" >>"${CONFIG_FILE}"
 done
 
 NOT_LIST="${BLOCKED_CATEGORIES//,/ !}"
-
-{
-  echo "acl {"
-  echo "  default {"
-  echo "    pass !${NOT_LIST} all"
-  echo "    redirect $REDIRECT_URL"
-  echo "  }"
-  echo "}"
-} >>"${CONFIG_FILE}"
-
-squidGuard -b -d -C all
 
 chown -R ${SQUID_USER}:${SQUID_USER} "${DB_LOCATION}"
 chown -R ${SQUID_USER}:${SQUID_USER} "${LOG_LOCATION}"

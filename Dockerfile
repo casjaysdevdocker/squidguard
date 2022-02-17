@@ -21,7 +21,7 @@ ENV \
   SQUID_HOME_DIR=/var/lib/squid \
   SQUID_CACHE_DIR=/data/cache/squid \
   SQUID_LOG_DIR=/data/log/squid \
-  SQUID_USER=root
+  SQUID_USER=squid
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -yy \
@@ -60,5 +60,5 @@ EXPOSE 3128 8080
 WORKDIR /config
 VOLUME ["/config", "/data"]
 
-HEALTHCHECK CMD ["/usr/local/bin/entrypoint-squid.sh","healthcheck"]
+HEALTHCHECK --start-period=1m --interval=10m --timeout=3s CMD ["/usr/local/bin/entrypoint-squid.sh","healthcheck"]
 ENTRYPOINT ["/usr/local/bin/entrypoint-squid.sh"]

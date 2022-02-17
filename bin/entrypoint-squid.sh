@@ -17,19 +17,22 @@ __init() {
   mkdir -p "/config" "/data"
 
   for dir in apache2 e2guardian squid c-icap; do
-    if [ -f "/usr/local/share/squidFiles/$dir" ]; then
-      [ -f "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/$dir" "/config/$dir"
-    elif [ -d "/usr/local/share/squidFiles/$dir" ]; then
-      [ -d "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/$dir/." "/config/$dir/"
+    if [ -f "/usr/local/share/squidFiles/config/$dir" ]; then
+      [ -f "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/config/$dir" "/config/$dir"
+    elif [ -d "/usr/local/share/squidFiles/config/$dir" ]; then
+      [ -d "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/config/$dir/." "/config/$dir/"
+    else
+      cp -Rf "/usr/local/share/squidFiles/data/." "/data/"
+      [ -e "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/config/$dir" "/config/$dir"
     fi
   done
 
-  mkdir -p "/data/log/squidguard" "/data/log/e2guardian" "/data/squidguard/db"
+  mkdir -p "/data/log/squidguard" "/data/log/e2guardian" "/data/squidguard/db" "/data/log/c-icap"
   mkdir -p "${SQUID_LOG_DIR}" "${SQUID_CACHE_DIR}" "/data/log/apache2" "/data/htdocs/cgi-bin"
   chown -Rf ${SQUID_USER}:${SQUID_USER} "/config" "/data"
   chown -Rf ${E2GUARD_USER}:${E2GUARD_USER} "/data/log/e2guardian" "/config/e2guardian"
   chown -Rf ${APACHE2_USER}:${APACHE2_USER} "/data/htdocs" "/config/apache2" "/data/log/apache2"
-  chmod -Rf 777 "${SQUID_LOG_DIR}" "${SQUID_CACHE_DIR}" "/data/log/e2guardian"
+  chmod -Rf 777 "${SQUID_LOG_DIR}" "${SQUID_CACHE_DIR}" "/data/log/e2guardian" "/data/log/c-icap"
 
   if [ "${WPAD_IP}" != "" ]; then
     sed 's/{{WPAD_IP}}/'"${WPAD_IP}"'/' -i "/data/htdocs/www/wpad.dat"

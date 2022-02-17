@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+PROXY_HOSTNAME=${PROXY_HOSTNAME:-proxy.casjay.net}
 export SQUID_PORT="${SQUID_PORT:-3127}"
 export E2GUARD_PORT="${E2GUARD_PORT:-3128}"
 export APACHE2_PORT="${APACHE2_PORT:-8080}"
@@ -56,6 +57,18 @@ __init() {
     sed -i "s|SQUID_PORT|$SQUID_PORT|g" "/config/squid/squid.conf"
   fi
 
+  if [ -f "/data/htdocs/cgi-bin/e2guardian" ]; then
+    sed -i "s|PROXY_HOSTNAME|$PROXY_HOSTNAME|g" "/data/htdocs/cgi-bin/e2guardian"
+  fi
+
+  if [ -f "/data/htdocs/cgi-bin/squidguard" ]; then
+    sed -i "s|PROXY_HOSTNAME|$PROXY_HOSTNAME|g" "/data/htdocs/cgi-bin/squidguard"
+  fi
+
+  if [ ! -f "/data/htdocs/cgi-bin/cachemgr.cgi" ]; then
+    cp -Rf "/usr/lib/cgi-bin/cachemgr.cgi" "/data/htdocs/cgi-bin/cachemgr.cgi"
+  fi
+
   cp -Rf "/config/." "/etc/"
 
   if [ "$(find /data/squidguard/db/* 2>/dev/null | wc -l)" -eq 0 ]; then
@@ -67,14 +80,6 @@ __init() {
       tar -xzf /tmp/backlist.tar.gz -C "/data/squidguard/db" &&
       rm -Rf /tmp/backlist.tar.gz &&
       chown -Rf ${SQUID_USER}:${SQUID_USER} "/data/squidguard/db"
-  fi
-
-  if [ ! -f "/data/htdocs/cgi-bin/cachemgr.cgi" ]; then
-    cp -Rf "/usr/lib/cgi-bin/cachemgr.cgi" "/data/htdocs/cgi-bin/cachemgr.cgi"
-  fi
-
-  if [ ! -f "/data/htdocs/cgi-bin/e2guardian.pl" ]; then
-    cp -Rf "/usr/lib/cgi-bin/e2guardian.pl" "/data/htdocs/cgi-bin/e2guardian.pl"
   fi
 
   # allow arguments to be passed to squid

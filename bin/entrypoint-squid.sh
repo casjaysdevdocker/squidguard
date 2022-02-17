@@ -16,14 +16,11 @@ export HOSTNAME="${HOSTNAME:-$(hostname -f)}"
 __init() {
   mkdir -p "/config" "/data"
 
-  for dir in apache2 e2guardian squid squidguard; do
+  for dir in apache2 e2guardian squid c-icap; do
     if [ -f "/usr/local/share/squidFiles/$dir" ]; then
-      cp -Rf "/usr/local/share/squidFiles/$dir" "/config/$dir"
+      [ -f "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/$dir" "/config/$dir"
     elif [ -d "/usr/local/share/squidFiles/$dir" ]; then
-      cp -Rf "/usr/local/share/squidFiles/$dir/." "/config/$dir/"
-    else
-      cp -Rf "/usr/local/share/squidFiles/data/." "/data/"
-      cp -Rf "/usr/local/share/squidFiles/config/." "/config/"
+      [ -d "/config/$dir" ] || cp -Rf "/usr/local/share/squidFiles/$dir/." "/config/$dir/"
     fi
   done
 

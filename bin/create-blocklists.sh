@@ -6,7 +6,6 @@ REDIRECT_URL="${REDIRECT_URL:-}"
 BLOCKLIST="${BLOCKLIST:-https://github.com/casjay/resources/raw/main/files/shallalist.tar.gz}"
 BLOCKED_CATEGORIES="${BLOCKED_CATEGORIES:-adv,aggressive,porn,spyware,violence,warez}"
 
-CONFIG_FILE="/etc/squidguard/squidGuard.conf"
 DB_LOCATION="/data/squidguard/db"
 LOG_LOCATION="/data/log"
 
@@ -16,13 +15,6 @@ wget -q "${BLOCKLIST}" -O /tmp/blocklist.tgz
 echo "Extracting blocklist..."
 mkdir -p /tmp/blocklist
 tar xzf /tmp/blocklist.tgz --strip-components=1 -C /tmp/blocklist
-
-echo "Creating config file..."
-rm "${CONFIG_FILE}"
-touch "${CONFIG_FILE}"
-
-echo "dbhome ${DB_LOCATION}" >>"${CONFIG_FILE}"
-echo "logdir ${LOG_LOCATION}" >>"${CONFIG_FILE}"
 
 for CATEGORY in $(echo ${BLOCKED_CATEGORIES} | sed "s/,/ /g"); do
   if [ ! -d "/tmp/blocklist/${CATEGORY}" ]; then

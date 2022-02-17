@@ -2,7 +2,7 @@
 
 SQUID_USER="${SQUID_USER:-squid}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
-REDIRECT_URL="${REDIRECT_URL:-}"
+REDIRECT_URL="${REDIRECT_URL:-/}"
 BLOCKLIST="${BLOCKLIST:-https://github.com/casjay/resources/raw/main/files/shallalist.tar.gz}"
 BLOCKED_CATEGORIES="${BLOCKED_CATEGORIES:-adv,aggressive,porn,spyware,violence,warez}"
 
@@ -68,3 +68,5 @@ chown -R ${SQUID_USER}:${SQUID_USER} "${CONFIG_FILE}"
 
 echo "Cleanup..."
 rm -rf /tmp/*
+
+squid -k reconfigure

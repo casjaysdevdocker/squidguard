@@ -1,0 +1,129 @@
+# DANSGUARDIAN weightedphraselist INSTRUCTIONS FOR USE
+#
+# Examples:
+#
+# <slut><10>			
+# - Adds 10 to the count against the string 'slut'.   ie. sluts, slut!, abslutxyz.
+#
+# < slut ><10>
+# - Adds 10 to the count against the word 'slut'.   ie. Sally is a slut that smells.
+#
+# <slut>,<horny><50>
+# - Adds 50 to the count when the strings 'slut' and 'horny' are found on the same page.
+#
+# <breast>,<medical><-30>
+# - Subtracts 30 from the count when 'breast' and 'medical' are on the one page.
+#
+# <education><-25>
+# - Subtracts 25 from the count when 'education' is on the page.
+#
+# See the bannedphraselist for more examples.
+#
+# Extra weighted-list files to include
+# .Include</config/e2guardian/lists/phraselists/weightedphraselist.topic>
+#
+# Help by contributing customised lists and/or new keyword lists. 
+# Email: pornmastergeneral@e2guardian.org or phrasemaster@e2guardian.org
+#
+# NOTE: New lists are commented out as ALPHA or BETA depending on how much the 
+# lists have been tested.
+# ALPHA - Brand new and/or incomplete - little testing has been done
+# BETA - Relatively new - tested in several locations
+#
+
+#listcategory: "Weighted Phrases"
+
+#To enable several non-PICS self-labelling and self-rating systems.  
+#Enabled as a bannedsitelist by default.  Disable there before enabling as a phraselist.
+##.Include</config/e2guardian/lists/phraselists/safelabel/weighted>
+
+#Good Phrases (to allow medical, education, news and other good sites)
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_news>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_danish>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_dutch>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_malay>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_polish>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_portuguese>
+.Include</config/e2guardian/lists/phraselists/goodphrases/weighted_general_swedish>
+
+#Pornography
+.Include</config/e2guardian/lists/phraselists/pornography/weighted>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_chinese> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_danish> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_dutch> #BETA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_french>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_german>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_italian>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_japanese> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_malay> #BETA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_norwegian> #BETA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_polish>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_portuguese>
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_russian> #BETA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_russian_utf8> #BETA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_spanish> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/pornography/weighted_swedish>
+.Include</config/e2guardian/lists/phraselists/nudism/weighted>
+
+#Bad Words - swearing
+.Include</config/e2guardian/lists/phraselists/badwords/weighted_dutch> 
+.Include</config/e2guardian/lists/phraselists/badwords/weighted_french>
+.Include</config/e2guardian/lists/phraselists/badwords/weighted_german> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/badwords/weighted_portuguese> #ALPHA#
+.Include</config/e2guardian/lists/phraselists/badwords/weighted_spanish> #ALPHA#
+
+#Drugs
+#.Include</config/e2guardian/lists/phraselists/drugadvocacy/weighted>
+#.Include</config/e2guardian/lists/phraselists/illegaldrugs/weighted>
+#.Include</config/e2guardian/lists/phraselists/illegaldrugs/weighted_portuguese>
+#.Include</config/e2guardian/lists/phraselists/legaldrugs/weighted>
+
+#Violence and intolerance
+#.Include</config/e2guardian/lists/phraselists/intolerance/weighted>
+#.Include</config/e2guardian/lists/phraselists/intolerance/weighted_portuguese>
+#.Include</config/e2guardian/lists/phraselists/gore/weighted>
+#.Include</config/e2guardian/lists/phraselists/gore/weighted_portuguese>
+#.Include</config/e2guardian/lists/phraselists/violence/weighted>
+#.Include</config/e2guardian/lists/phraselists/violence/weighted_portuguese>
+#.Include</config/e2guardian/lists/phraselists/weapons/weighted>
+#.Include</config/e2guardian/lists/phraselists/weapons/weighted_portuguese>
+
+#Chat
+#.Include</config/e2guardian/lists/phraselists/chat/weighted>
+#.Include</config/e2guardian/lists/phraselists/chat/weighted_italian>
+
+#Webmail
+#.Include</config/e2guardian/lists/phraselists/webmail/weighted>
+#Note that if you enable the webmail weighted list you should also disable 
+#the "exception_email" list in the exceptionphraselist file.
+
+#Forums
+#.Include</config/e2guardian/lists/phraselists/forums/weighted> #BETA#
+
+#Gambling
+#.Include</config/e2guardian/lists/phraselists/gambling/weighted>
+#.Include</config/e2guardian/lists/phraselists/gambling/weighted_portuguese>
+
+#Productivity
+#.Include</config/e2guardian/lists/phraselists/games/weighted> #ALPHA#
+#.Include</config/e2guardian/lists/phraselists/news/weighted> #ALPHA#
+#.Include</config/e2guardian/lists/phraselists/personals/weighted>
+#.Include</config/e2guardian/lists/phraselists/personals/weighted_portuguese>
+#.Include</config/e2guardian/lists/phraselists/sport/weighted> #ALPHA#
+#.Include</config/e2guardian/lists/phraselists/travel/weighted>
+#.Include</config/e2guardian/lists/phraselists/music/weighted>
+
+#System Management and Security
+#.Include</config/e2guardian/lists/phraselists/domainsforsale/weighted>
+#.Include</config/e2guardian/lists/phraselists/idtheft/weighted>
+.Include</config/e2guardian/lists/phraselists/malware/weighted> #BETA#
+.Include</config/e2guardian/lists/phraselists/proxies/weighted>
+#.Include</config/e2guardian/lists/phraselists/translation/weighted>
+#.Include</config/e2guardian/lists/phraselists/upstreamfilter/weighted>
+.Include</config/e2guardian/lists/phraselists/warezhacking/weighted>
+#.Include</config/e2guardian/lists/phraselists/peer2peer/weighted>
+
+#Miscellaneous	
+#.Include</config/e2guardian/lists/phraselists/conspiracy/weighted>
+#.Include</config/e2guardian/lists/phraselists/secretsocieties/weighted>

@@ -1,0 +1,97 @@
+body {
+  color: #000000;
+  background-color: #ffffff;
+  font-family: arial, helvetica, sans-serif;
+}
+img.valid {
+  width: 88px;
+  height: 31px;
+  border-width: 0px;
+}
+table.main {
+  width: 700px;
+  height: 540px;
+  padding: 2px;
+  border-width: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+td.content {
+  width: 550px;
+  vertical-align: middle;
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 14pt;
+  text-align: center;
+}
+td.notice {
+  height: 100px;
+  color: #000000;
+  /* background-color:#fea700; */
+  background-color: #ff0000;
+  font-size: 22pt;
+  font-weight: bold;
+  text-align: center;
+}
+td.org {
+  width: 150px;
+  vertical-align: bottom;
+  color: #000000;
+  background-color: #b0c4de;
+  font-size: 8pt;
+  text-align: center;
+}
+td.user {
+  height: 30px;
+  color: #000000;
+  /* background-color:#fffacd; */
+  background-color: #999999;
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: right;
+}
+
+.rtop,
+.rbottom {
+  display: block;
+}
+.rtop *,
+.rbottom * {
+  display: block;
+  height: 1px;
+  overflow: hidden;
+}
+.r1 {
+  margin: 0 5px;
+}
+.r2 {
+  margin: 0 3px;
+}
+.r3 {
+  margin: 0 2px;
+}
+.r4 {
+  margin: 0 1px;
+  height: 2px;
+}
+.rs1 {
+  margin: 0 2px;
+}
+.rs2 {
+  margin: 0 1px;
+}
+.bypasstext {
+  font-size: 10px;
+}
+.errortext {
+  color: red;
+}
+body {
+  padding: 20px;
+  background-color: #1f2229;
+  font: 100.01% 'Trebuchet MS', Verdana, Arial, sans-serif;
+}
+div#nifty {
+  margin: 0 10%;
+  background: #454b5a;
+}

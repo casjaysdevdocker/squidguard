@@ -22,7 +22,7 @@ __init() {
       cp -Rf "/usr/local/share/squidFiles/$dir/." "/config/$dir/"
     else
       cp -Rf "/usr/local/share/squidFiles/data/." "/data/"
-      cp -Rf "usr/local/share/squidFiles/config/." "/config/"
+      cp -Rf "/usr/local/share/squidFiles/config/." "/config/"
     fi
   done
 
@@ -58,6 +58,10 @@ __init() {
 
   cp -Rf "/config/." "/etc/"
 
+  if [ "$(find /data/squidguard/db/* 2>/dev/null | wc -l)" -eq 0 ]; then
+    /usr/local/bin/create-blocklists.sh
+  fi
+
   if [ "${UPDATE_BLACKLIST_URL}" != "" ]; then
     sudo wget -O /tmp/backlist.tar.gz ${UPDATE_BLACKLIST_URL} &&
       tar -xzf /tmp/backlist.tar.gz -C "/data/squidguard/db" &&
@@ -75,10 +79,10 @@ __init() {
 
   # allow arguments to be passed to squid
   if [[ ${1:0:1} = '-' ]]; then
-    EXTRA_ARGS="$@"
+    EXTRA_ARGS=("$@")
     set --
   elif [[ ${1} == squid || ${1} == $(which squid) ]]; then
-    EXTRA_ARGS="${@:2}"
+    EXTRA_ARGS=("${@:2}")
     set --
   fi
 }
@@ -114,6 +118,7 @@ bash | shell | sh)
   e2guardian -N -c "/config/e2guardian/e2guardian.conf" &
 
   echo "Starting squid..."
-  exec $(which squid) -f "/config/squid/squid.conf" -NYCd 1 ${EXTRA_ARGS}
+  squid -f "/config/squid/squid.conf" -NYCd 1 ${EXTRA_ARGS} &
+  exec tail -f /data/log/*/*
   ;;
 esac

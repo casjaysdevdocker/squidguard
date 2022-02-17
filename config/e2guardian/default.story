@@ -1,5 +1,5 @@
-.Include</etc/e2guardian/common.story>
-.Include</etc/e2guardian/site.story>
+.Include</config/e2guardian/common.story>
+.Include</config/e2guardian/site.story>
 
 # Add any altered functions for this filtergroup here
 # They will overwrite library or site level definitions

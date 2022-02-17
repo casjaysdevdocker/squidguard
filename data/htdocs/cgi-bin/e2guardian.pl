@@ -16,7 +16,7 @@ $ibypasshash = $in{'GIBYPASS'}; #
 $hashflag = $in{'HASH'};        #
 
 print "Content-type: text/html\n\n";
-print '<HTML><link rel="stylesheet" href="/css/index.css" />';
+print '<HTML><link rel="stylesheet" href="/css/proxy.css" />';
 print '<HEAD><TITLE>Access Denied</TITLE></HEAD>';
 print '<BODY><CENTER><H2>ACCESS HAS BEEN DENIED</H2>';
 if (length($user) > 0) {

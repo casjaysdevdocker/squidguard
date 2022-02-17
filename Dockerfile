@@ -37,7 +37,6 @@ RUN apt-get update \
   squid \
   squid-cgi \
   squidclient \
-  squidguard \
   e2guardian \
   c-icap \
   && apt-get remove -yy --purge exim* \

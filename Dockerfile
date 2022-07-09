@@ -1,16 +1,16 @@
-FROM casjaysdev/debian:latest AS build
+FROM casjaysdevdocker/debian:latest AS build
 
 ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')" 
 
 LABEL \
   org.label-schema.name="Full proxy server" \
   org.label-schema.description="" \
-  org.label-schema.url="https://github.com/casjaysdev/squid" \
-  org.label-schema.vcs-url="https://github.com/casjaysdev/squid" \
+  org.label-schema.url="https://hub.docker.com/r/casjaysdevdocker/squid" \
+  org.label-schema.vcs-url="https://github.com/casjaysdevdocker/squid" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$BUILD_DATE \
   org.label-schema.vcs-ref=$BUILD_DATE \
-  org.label-schema.license="MIT" \
+  org.label-schema.license="WTFPL" \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="latest" \
   org.label-schema.vendor="CasjaysDev" \

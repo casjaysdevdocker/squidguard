@@ -33,7 +33,7 @@ RUN apt-get update \
   libapache2-mod-geoip \
   libapache2-mod-proxy-uwsgi \
   libapache2-mod-fcgid \
-  libapache2-mod-wsgi \
+  libapache2-mod-wsgi-py3 \
   squid \
   squid-cgi \
   squidclient \

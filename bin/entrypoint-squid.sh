@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-
+# Set bash options
+[ -n "$DEBUG" ] && set -x
+set -o pipefail
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 PROXY_HOSTNAME=${PROXY_HOSTNAME:-proxy.casjay.net}
 export SQUID_PORT="${SQUID_PORT:-3127}"
 export E2GUARD_PORT="${E2GUARD_PORT:-3128}"

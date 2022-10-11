@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-
+# Set bash options
+[ -n "$DEBUG" ] && set -x
+set -o pipefail
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 SQUID_USER="${SQUID_USER:-squid}"
 SQUID_LOG_DIR="${SQUID_LOG_DIR:-/data/log/squid}"
 REDIRECT_URL="${REDIRECT_URL:-}"

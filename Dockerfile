@@ -1,6 +1,4 @@
-FROM casjaysdevdocker/alpine:latest AS build
-
-ARG ALPINE_VERSION="v3.16"
+FROM casjaysdev/alpine:latest AS build
 
 ARG DEFAULT_DATA_DIR="/usr/local/share/template-files/data" \
   DEFAULT_CONF_DIR="/usr/local/share/template-files/config" \
